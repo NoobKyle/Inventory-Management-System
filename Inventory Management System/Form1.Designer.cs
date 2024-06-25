@@ -126,7 +126,7 @@
 			listBox1.FormattingEnabled = true;
 			listBox1.ItemHeight = 15;
 			listBox1.Items.AddRange(new object[] { "Wheel ", "Pedal", "Chain" });
-			listBox1.Location = new Point(30, 150);
+			listBox1.Location = new Point(12, 150);
 			listBox1.Name = "listBox1";
 			listBox1.Size = new Size(471, 349);
 			listBox1.TabIndex = 8;
@@ -194,6 +194,7 @@
 			button9.TabIndex = 15;
 			button9.Text = "Add";
 			button9.UseVisualStyleBackColor = true;
+			button9.Click += button9_Click;
 			// 
 			// Form1
 			// 

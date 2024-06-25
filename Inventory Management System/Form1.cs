@@ -47,5 +47,10 @@ namespace Inventory_Management_System
 			Form2 form2 = new Form2();
 			form2.Show();
 		}
+
+		private void button9_Click(object sender, EventArgs e)
+		{
+			label3.Text = Test.MyMethod();
+		}
 	}
 }
