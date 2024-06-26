@@ -39,6 +39,35 @@ namespace Inventory_Management_System
 			Max = 0;
 		}
 
+		public void AddAssociatedPart(Part part)
+		{
+			AssociatedParts.Add(part);
+		}
+
+		public bool RemoveAssociatedPart(int PartID)
+		{
+			var partToRemove = AssociatedParts.Where(p => p.PartID == PartID).FirstOrDefault();
+			if (partToRemove == null)
+			{
+				throw new Exception(message: $"A part with ID #{PartID} is not in this product.");
+			}
+
+			AssociatedParts.Remove(partToRemove);
+			return true;
+		}
+
+		public Part LookupAssociatedPart(int PartID)
+		{
+			var part = AssociatedParts.Where(p => p.PartID == PartID).FirstOrDefault();
+			if (part == null)
+			{
+				throw new Exception(message: $"A part with ID #{PartID} is not in this product.");
+			}
+
+			return part;
+		}
+
+
 
 	}
 }

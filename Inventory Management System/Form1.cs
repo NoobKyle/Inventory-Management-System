@@ -52,5 +52,10 @@ namespace Inventory_Management_System
 		{
 			label3.Text = Test.MyMethod();
 		}
+
+		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
 	}
 }
