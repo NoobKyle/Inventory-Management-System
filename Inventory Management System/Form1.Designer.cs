@@ -36,14 +36,16 @@
 			button2 = new Button();
 			textBox2 = new TextBox();
 			button3 = new Button();
-			listBox1 = new ListBox();
-			listBox2 = new ListBox();
 			button4 = new Button();
 			button5 = new Button();
 			button6 = new Button();
 			button7 = new Button();
 			button8 = new Button();
 			button9 = new Button();
+			dataGridView1 = new DataGridView();
+			dataGridView2 = new DataGridView();
+			((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
 			SuspendLayout();
 			// 
 			// label1
@@ -121,28 +123,9 @@
 			button3.UseVisualStyleBackColor = true;
 			button3.Click += button3_Click;
 			// 
-			// listBox1
-			// 
-			listBox1.FormattingEnabled = true;
-			listBox1.ItemHeight = 15;
-			listBox1.Items.AddRange(new object[] { "Wheel ", "Pedal", "Chain" });
-			listBox1.Location = new Point(12, 150);
-			listBox1.Name = "listBox1";
-			listBox1.Size = new Size(471, 349);
-			listBox1.TabIndex = 8;
-			// 
-			// listBox2
-			// 
-			listBox2.FormattingEnabled = true;
-			listBox2.ItemHeight = 15;
-			listBox2.Location = new Point(512, 150);
-			listBox2.Name = "listBox2";
-			listBox2.Size = new Size(460, 349);
-			listBox2.TabIndex = 9;
-			// 
 			// button4
 			// 
-			button4.Location = new Point(316, 505);
+			button4.Location = new Point(316, 525);
 			button4.Name = "button4";
 			button4.Size = new Size(63, 28);
 			button4.TabIndex = 10;
@@ -152,7 +135,7 @@
 			// 
 			// button5
 			// 
-			button5.Location = new Point(385, 505);
+			button5.Location = new Point(385, 525);
 			button5.Name = "button5";
 			button5.Size = new Size(55, 28);
 			button5.TabIndex = 11;
@@ -161,7 +144,7 @@
 			// 
 			// button6
 			// 
-			button6.Location = new Point(446, 505);
+			button6.Location = new Point(446, 525);
 			button6.Name = "button6";
 			button6.Size = new Size(55, 28);
 			button6.TabIndex = 12;
@@ -170,7 +153,7 @@
 			// 
 			// button7
 			// 
-			button7.Location = new Point(917, 505);
+			button7.Location = new Point(917, 525);
 			button7.Name = "button7";
 			button7.Size = new Size(55, 28);
 			button7.TabIndex = 13;
@@ -179,7 +162,7 @@
 			// 
 			// button8
 			// 
-			button8.Location = new Point(856, 505);
+			button8.Location = new Point(856, 525);
 			button8.Name = "button8";
 			button8.Size = new Size(55, 28);
 			button8.TabIndex = 14;
@@ -188,7 +171,7 @@
 			// 
 			// button9
 			// 
-			button9.Location = new Point(795, 505);
+			button9.Location = new Point(795, 525);
 			button9.Name = "button9";
 			button9.Size = new Size(55, 28);
 			button9.TabIndex = 15;
@@ -196,19 +179,37 @@
 			button9.UseVisualStyleBackColor = true;
 			button9.Click += button9_Click;
 			// 
+			// dataGridView1
+			// 
+			dataGridView1.BackgroundColor = SystemColors.Window;
+			dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridView1.Location = new Point(12, 150);
+			dataGridView1.Name = "dataGridView1";
+			dataGridView1.Size = new Size(489, 369);
+			dataGridView1.TabIndex = 16;
+			// 
+			// dataGridView2
+			// 
+			dataGridView2.BackgroundColor = SystemColors.Window;
+			dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridView2.Location = new Point(512, 150);
+			dataGridView2.Name = "dataGridView2";
+			dataGridView2.Size = new Size(476, 369);
+			dataGridView2.TabIndex = 17;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1000, 600);
+			Controls.Add(dataGridView2);
+			Controls.Add(dataGridView1);
 			Controls.Add(button9);
 			Controls.Add(button8);
 			Controls.Add(button7);
 			Controls.Add(button6);
 			Controls.Add(button5);
 			Controls.Add(button4);
-			Controls.Add(listBox2);
-			Controls.Add(listBox1);
 			Controls.Add(button3);
 			Controls.Add(textBox2);
 			Controls.Add(button2);
@@ -220,6 +221,8 @@
 			Name = "Form1";
 			Text = "Inventory Management System";
 			Load += Form1_Load;
+			((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+			((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -234,13 +237,13 @@
 		private Button button2;
 		private TextBox textBox2;
 		private Button button3;
-		private ListBox listBox1;
-		private ListBox listBox2;
 		private Button button4;
 		private Button button5;
 		private Button button6;
 		private Button button7;
 		private Button button8;
 		private Button button9;
+		private DataGridView dataGridView1;
+		private DataGridView dataGridView2;
 	}
 }
