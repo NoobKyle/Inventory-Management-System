@@ -100,7 +100,9 @@ namespace Inventory_Management_System
 
 		private void button9_Click(object sender, EventArgs e)
 		{
-			label3.Text = Test.MyMethod();
+			Inventory.CurrentProduct = null;
+			Form3 form3 = new Form3();
+			form3.Show(); this.Hide();
 		}
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -191,6 +193,69 @@ namespace Inventory_Management_System
 			else
 			{
 				MessageBox.Show("Please select something to modify.");
+			}
+		}
+
+		private void button6_Click(object sender, EventArgs e)
+		{
+			SetSelectedPartIndex();
+			if (Inventory.SelectedPartIndex >= 0)
+			{
+				DialogResult dialogResult = MessageBox.Show("Do you want to delete this part?", "", MessageBoxButtons.YesNo);
+
+				if (dialogResult == DialogResult.Yes)
+				{
+					Inventory.Parts.RemoveAt(Inventory.SelectedPartIndex);
+				}
+
+			}
+			else
+			{
+				MessageBox.Show("Please select a part to delete");
+			}
+
+
+		}
+
+		private void button8_Click(object sender, EventArgs e)
+		{
+			SetSelectedProductIndex();
+			if (Inventory.SelectedProductIndex >= 0)
+			{
+				Inventory.CurrentProduct = Inventory.Products[Inventory.SelectedProductIndex];
+				this.Hide();
+				Form3 form3 = new Form3();
+				form3.Show();
+			}
+			else
+			{
+				MessageBox.Show("Please select something to modify");
+			}
+		}
+
+		private void button7_Click(object sender, EventArgs e)
+		{
+			SetSelectedProductIndex();
+
+			if (Inventory.SelectedProductIndex >= 0)
+			{
+				Inventory.CurrentProduct = Inventory.Products[Inventory.SelectedProductIndex];
+				if (Inventory.CurrentProduct.AssociatedParts.Count == 0)
+				{
+					DialogResult dialogResult = MessageBox.Show("Do you want to delete this product", "", MessageBoxButtons.YesNo);
+					if (dialogResult == DialogResult.Yes)
+					{
+						Inventory.Products.RemoveAt(Inventory.SelectedProductIndex);
+					}
+				}
+				else
+				{
+					MessageBox.Show("Cannot delete product with parts associated.");
+				}
+			}
+			else
+			{
+				MessageBox.Show("Please select a product to delete");
 			}
 		}
 	}
