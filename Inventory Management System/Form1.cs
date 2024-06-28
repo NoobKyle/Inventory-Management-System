@@ -1,3 +1,6 @@
+using System.ComponentModel;
+using System.Linq;
+
 namespace Inventory_Management_System
 {
 	public partial class Form1 : Form
@@ -36,7 +39,8 @@ namespace Inventory_Management_System
 			}
 		}
 
-		private void SetSelectedProductIndex() {
+		private void SetSelectedProductIndex()
+		{
 			if (dataGridView2.SelectedRows.Count != 0)
 			{
 				DataGridViewRow row = dataGridView2.SelectedRows[0];
@@ -46,7 +50,7 @@ namespace Inventory_Management_System
 			{
 				Inventory.SelectedProductIndex = -1;
 			}
-			}
+		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
@@ -88,8 +92,10 @@ namespace Inventory_Management_System
 
 		private void button4_Click(object sender, EventArgs e)
 		{
+			Inventory.CurrentPart = null;
 			Form2 form2 = new Form2();
 			form2.Show();
+			this.Hide();
 		}
 
 		private void button9_Click(object sender, EventArgs e)
@@ -100,6 +106,92 @@ namespace Inventory_Management_System
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
+		}
+
+		// Search for Parts
+		private void button1_Click(object sender, EventArgs e)
+		{
+			BindingList<Part> TempPartList = new BindingList<Part>();
+			bool found = false;
+			if (textBox1.Text != "")
+			{
+				for (int i = 0; i < Inventory.Parts.Count; i++)
+				{
+					if (Inventory.Parts[i].Name.ToUpper().Contains(textBox1.Text.ToUpper()))
+					{
+						TempPartList.Add(Inventory.Parts[i]);
+						found = true;
+					}
+				}
+				if (found)
+				{
+					dataGridView1.DataSource = TempPartList;
+				}
+			}
+			if (!found)
+			{
+				MessageBox.Show("No Results Found.");
+				dataGridView1.DataSource = Inventory.Parts;
+			}
+		}
+
+		// Search for Products
+		private void button2_Click(object sender, EventArgs e)
+		{
+			BindingList<Product> TempProductList = new BindingList<Product>();
+			bool found = true;
+			if (textBox2.Text != "")
+			{
+				for (int i = 0; i < Inventory.Products.Count; i++)
+				{
+					if (Inventory.Products[i].Name.ToUpper().Contains(textBox2.Text.ToUpper()))
+					{
+						TempProductList.Add(Inventory.Products[i]);
+						found = true;
+					}
+				}
+				if (found)
+				{
+					dataGridView2.DataSource = TempProductList;
+				}
+			}
+			if (!found)
+			{
+				MessageBox.Show("No Results Found");
+				dataGridView2.DataSource = Inventory.Products;
+			}
+		}
+
+		private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+		{
+			SetSelectedPartIndex();
+			dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
+		}
+
+		private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			SetSelectedProductIndex();
+			dataGridView2.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
+		}
+
+		private void button5_Click(object sender, EventArgs e)
+		{
+		}
+
+		private void button5_Click_1(object sender, EventArgs e)
+		{
+			SetSelectedPartIndex();
+			if (Inventory.SelectedPartIndex >= 0)
+			{
+				Inventory.CurrentPart = Inventory.Parts[Inventory.SelectedPartIndex];
+				this.Hide();
+				Form3 form3 = new Form3();
+				form3.Show();
+			}
+			else
+			{
+				MessageBox.Show("Please select something to modify.");
+			}
 		}
 	}
 }

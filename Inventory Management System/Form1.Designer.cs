@@ -88,6 +88,7 @@
 			button1.TabIndex = 3;
 			button1.Text = "Search";
 			button1.UseVisualStyleBackColor = true;
+			button1.Click += button1_Click;
 			// 
 			// textBox1
 			// 
@@ -105,6 +106,7 @@
 			button2.TabIndex = 5;
 			button2.Text = "Search";
 			button2.UseVisualStyleBackColor = true;
+			button2.Click += button2_Click;
 			// 
 			// textBox2
 			// 
@@ -141,6 +143,7 @@
 			button5.TabIndex = 11;
 			button5.Text = "Modify";
 			button5.UseVisualStyleBackColor = true;
+			button5.Click += button5_Click_1;
 			// 
 			// button6
 			// 
@@ -187,6 +190,7 @@
 			dataGridView1.Name = "dataGridView1";
 			dataGridView1.Size = new Size(489, 369);
 			dataGridView1.TabIndex = 16;
+			dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
 			// 
 			// dataGridView2
 			// 
@@ -196,6 +200,7 @@
 			dataGridView2.Name = "dataGridView2";
 			dataGridView2.Size = new Size(476, 369);
 			dataGridView2.TabIndex = 17;
+			dataGridView2.CellContentClick += dataGridView2_CellContentClick;
 			// 
 			// Form1
 			// 
