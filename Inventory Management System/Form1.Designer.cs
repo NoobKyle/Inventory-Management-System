@@ -153,6 +153,7 @@
 			button6.TabIndex = 12;
 			button6.Text = "Delete";
 			button6.UseVisualStyleBackColor = true;
+			button6.Click += button6_Click;
 			// 
 			// button7
 			// 
@@ -162,6 +163,7 @@
 			button7.TabIndex = 13;
 			button7.Text = "Delete";
 			button7.UseVisualStyleBackColor = true;
+			button7.Click += button7_Click;
 			// 
 			// button8
 			// 
@@ -171,6 +173,7 @@
 			button8.TabIndex = 14;
 			button8.Text = "Modify";
 			button8.UseVisualStyleBackColor = true;
+			button8.Click += button8_Click;
 			// 
 			// button9
 			// 
