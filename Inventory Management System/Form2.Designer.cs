@@ -206,6 +206,7 @@
 			textBox8.Name = "textBox8";
 			textBox8.Size = new Size(113, 23);
 			textBox8.TabIndex = 17;
+			textBox8.TextChanged += textBox8_TextChanged;
 			// 
 			// button1
 			// 
