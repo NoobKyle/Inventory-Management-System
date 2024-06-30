@@ -12,9 +12,40 @@ namespace Inventory_Management_System
 {
 	public partial class Form2 : Form
 	{
+		private bool isInhouse;
+		private Part part;
+
+		// Checks Go Here
+
 		public Form2()
 		{
 			InitializeComponent();
+			part = Inventory.CurrentPart;
+
+			if (part != null)
+			{
+				textBox1.Text = part.PartID.ToString();
+				textBox2.Text = part.Name.ToString();
+				textBox3.Text = part.InStock.ToString();
+				textBox4.Text = part.Price.ToString();
+				textBox8.Text = part.Max.ToString();
+				textBox6.Text = part.Min.ToString();
+
+				if (Inventory.CurrentPart is Inhouse)
+				{
+					Inhouse e = (Inhouse)part;
+					textBox7.Text = e.MachineID.ToString();
+					isInhouse = true;
+					radioButton1.Checked = true;
+				}
+				else
+				{
+					Outsourced e = (Outsourced)part;
+					textBox7.Text = e.CompanyName;
+					isInhouse = false;
+					radioButton2.Checked = true;
+				}
+			}
 		}
 
 		private void label1_Click(object sender, EventArgs e)
@@ -56,6 +87,11 @@ namespace Inventory_Management_System
 		{
 			Form3 form3 = new Form3();
 			form3.Show();
+		}
+
+		private void textBox8_TextChanged(object sender, EventArgs e)
+		{
+			//button1.Enabled = allowSave;
 		}
 	}
 }
