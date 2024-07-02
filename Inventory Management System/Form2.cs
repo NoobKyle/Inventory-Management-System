@@ -97,7 +97,8 @@ namespace Inventory_Management_System
 					);
 				Inventory.AddPart(inhousePart);
 			}
-			else { 
+			else
+			{
 				Outsourced outsourcedPart = new Outsourced(textBox2.Text, Convert.ToDecimal(textBox4.Text),
 					Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox6.Text),
 					Convert.ToInt32(textBox8.Text), textBox7.Text
@@ -113,7 +114,7 @@ namespace Inventory_Management_System
 
 		private void textBox3_TextChanged(object sender, EventArgs e)
 		{
-
+			button1.Enabled = allowSave();
 		}
 
 		private void label2_Click(object sender, EventArgs e)
@@ -143,13 +144,14 @@ namespace Inventory_Management_System
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			Form3 form3 = new Form3();
-			form3.Show();
+			this.Close();
+			this.Hide();
+			Form1 form1 = new Form1();
+			form1.Show();
 		}
 
 		private void textBox8_TextChanged(object sender, EventArgs e)
 		{
-			//bool ValidMax = ValidateFields.InvBetweenMinMax(textBox3.Text, M)
 
 			button1.Enabled = allowSave();
 		}
@@ -172,7 +174,7 @@ namespace Inventory_Management_System
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			if(part == null)
+			if (part == null)
 			{
 				CreateNewPart();
 			}
@@ -180,6 +182,26 @@ namespace Inventory_Management_System
 			this.Hide();
 			Form1 form1 = new Form1();
 			form1.Show();
+		}
+
+		private void textBox2_TextChanged(object sender, EventArgs e)
+		{
+			button1.Enabled = allowSave();
+		}
+
+		private void textBox4_TextChanged(object sender, EventArgs e)
+		{
+			button1.Enabled = allowSave();
+		}
+
+		private void textBox6_TextChanged(object sender, EventArgs e)
+		{
+			button1.Enabled = allowSave();
+		}
+
+		private void textBox7_TextChanged(object sender, EventArgs e)
+		{
+			button1.Enabled = allowSave();
 		}
 	}
 }

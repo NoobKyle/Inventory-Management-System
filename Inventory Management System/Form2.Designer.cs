@@ -172,6 +172,7 @@
 			textBox2.Name = "textBox2";
 			textBox2.Size = new Size(208, 23);
 			textBox2.TabIndex = 11;
+			textBox2.TextChanged += textBox2_TextChanged;
 			// 
 			// textBox3
 			// 
@@ -187,6 +188,7 @@
 			textBox4.Name = "textBox4";
 			textBox4.Size = new Size(208, 23);
 			textBox4.TabIndex = 13;
+			textBox4.TextChanged += textBox4_TextChanged;
 			// 
 			// textBox6
 			// 
@@ -194,6 +196,7 @@
 			textBox6.Name = "textBox6";
 			textBox6.Size = new Size(113, 23);
 			textBox6.TabIndex = 15;
+			textBox6.TextChanged += textBox6_TextChanged;
 			// 
 			// textBox7
 			// 
@@ -201,6 +204,7 @@
 			textBox7.Name = "textBox7";
 			textBox7.Size = new Size(215, 23);
 			textBox7.TabIndex = 16;
+			textBox7.TextChanged += textBox7_TextChanged;
 			// 
 			// textBox8
 			// 
