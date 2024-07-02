@@ -15,7 +15,46 @@ namespace Inventory_Management_System
 		private bool isInhouse;
 		private Part part;
 
-		// Checks Go Here
+		// Input Validation
+		private bool allowSave()
+		{
+			if (!ValidateFields.IsNotNullOrWhiteSpace(textBox2.Text)) // Name textbox
+			{
+				return false;
+			}
+			if (!ValidateFields.IsDecimal(textBox4.Text)) // Price textbox
+			{
+				return false;
+			}
+			if (!ValidateFields.IsInt(textBox3.Text)) // Inventory textbox
+			{
+				return false;
+			}
+			if (!ValidateFields.IsInt(textBox6.Text)) // Min textbox
+			{
+				return false;
+			}
+			if (!ValidateFields.IsInt(textBox8.Text)) // Max textbox
+			{
+				return false;
+			}
+			if (!ValidateFields.InvBetweenMinMax(textBox3.Text, textBox6.Text, textBox8.Text)) // Inventory, min and max
+			{
+				return false;
+			}
+			if (isInhouse)
+			{
+				if (!ValidateFields.IsInt(textBox7.Text)) // Machine id textbox
+				{
+					return false;
+				}
+			}
+			if (!ValidateFields.IsNotNullOrWhiteSpace(textBox7.Text)) // Machine id textbox
+			{
+				return false;
+			}
+			return true;
+		}
 
 		public Form2()
 		{
@@ -45,6 +84,25 @@ namespace Inventory_Management_System
 					isInhouse = false;
 					radioButton2.Checked = true;
 				}
+			}
+		}
+
+		void CreateNewPart()
+		{
+			if (isInhouse)
+			{
+				Inhouse inhousePart = new Inhouse(textBox2.Text, Convert.ToDecimal(textBox4.Text),
+					Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox6.Text),
+					Convert.ToInt32(textBox8.Text), Convert.ToInt32(textBox7.Text)
+					);
+				Inventory.AddPart(inhousePart);
+			}
+			else { 
+				Outsourced outsourcedPart = new Outsourced(textBox2.Text, Convert.ToDecimal(textBox4.Text),
+					Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox6.Text),
+					Convert.ToInt32(textBox8.Text), textBox7.Text
+					);
+				Inventory.AddPart(outsourcedPart);
 			}
 		}
 
@@ -91,7 +149,37 @@ namespace Inventory_Management_System
 
 		private void textBox8_TextChanged(object sender, EventArgs e)
 		{
-			//button1.Enabled = allowSave;
+			//bool ValidMax = ValidateFields.InvBetweenMinMax(textBox3.Text, M)
+
+			button1.Enabled = allowSave();
+		}
+
+		private void radioButton1_CheckedChanged(object sender, EventArgs e)
+		{
+			label8.Text = "Machine ID";
+			isInhouse = true;
+
+			button1.Enabled = allowSave();
+		}
+
+		private void radioButton2_CheckedChanged(object sender, EventArgs e)
+		{
+			label8.Text = "Company Name";
+			isInhouse = false;
+
+			button1.Enabled = allowSave();
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			if(part == null)
+			{
+				CreateNewPart();
+			}
+			this.Close();
+			this.Hide();
+			Form1 form1 = new Form1();
+			form1.Show();
 		}
 	}
 }
