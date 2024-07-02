@@ -70,6 +70,7 @@
 			radioButton1.TabStop = true;
 			radioButton1.Text = "In-House";
 			radioButton1.UseVisualStyleBackColor = true;
+			radioButton1.CheckedChanged += radioButton1_CheckedChanged;
 			// 
 			// radioButton2
 			// 
@@ -81,6 +82,7 @@
 			radioButton2.TabStop = true;
 			radioButton2.Text = "Outsourced";
 			radioButton2.UseVisualStyleBackColor = true;
+			radioButton2.CheckedChanged += radioButton2_CheckedChanged;
 			// 
 			// label2
 			// 
@@ -216,6 +218,7 @@
 			button1.TabIndex = 18;
 			button1.Text = "Save";
 			button1.UseVisualStyleBackColor = true;
+			button1.Click += button1_Click;
 			// 
 			// button2
 			// 
