@@ -167,6 +167,7 @@
 			button2.TabIndex = 12;
 			button2.Text = "Add";
 			button2.UseVisualStyleBackColor = true;
+			button2.Click += button2_Click;
 			// 
 			// button3
 			// 
@@ -186,6 +187,7 @@
 			button4.TabIndex = 14;
 			button4.Text = "Save";
 			button4.UseVisualStyleBackColor = true;
+			button4.Click += button4_Click;
 			// 
 			// button5
 			// 
@@ -254,6 +256,7 @@
 			dataGridView1.Name = "dataGridView1";
 			dataGridView1.Size = new Size(645, 211);
 			dataGridView1.TabIndex = 23;
+			dataGridView1.CellContentClick += dataGridView1_CellContentClick;
 			// 
 			// dataGridView2
 			// 
@@ -263,6 +266,7 @@
 			dataGridView2.Name = "dataGridView2";
 			dataGridView2.Size = new Size(645, 211);
 			dataGridView2.TabIndex = 24;
+			dataGridView2.CellContentClick += dataGridView2_CellContentClick;
 			// 
 			// Form3
 			// 
@@ -295,6 +299,7 @@
 			Name = "Form3";
 			StartPosition = FormStartPosition.CenterParent;
 			Text = "Form3";
+			Load += Form3_Load;
 			((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
 			((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
 			ResumeLayout(false);
