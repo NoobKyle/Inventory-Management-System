@@ -169,7 +169,7 @@ namespace Inventory_Management_System
 
 		private void textBox6_TextChanged(object sender, EventArgs e)
 		{
-
+			button4.Enabled = allowSave();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -201,8 +201,26 @@ namespace Inventory_Management_System
 
 		private void button4_Click(object sender, EventArgs e)
 		{
-
+			if (product.ProductID == -1)
+			{
+				CreateNewProduct();
+			}
+			this.Close();
+			this.Hide();
+			Form1 form1 = new Form1();
+			form1.Show();
 		}
+
+		// Create a New Product
+		void CreateNewProduct()
+		{
+			Product newProduct = new Product(textBox2.Text, Convert.ToDecimal(textBox4.Text), Convert.ToInt32(textBox3.Text), Convert.ToInt32(textBox6.Text), Convert.ToInt32(textBox5.Text));
+
+			Inventory.AddProduct(newProduct);
+			newProduct.AssociatedParts = product.AssociatedParts;
+		}
+
+
 
 		private void Form3_Load(object sender, EventArgs e)
 		{
@@ -237,7 +255,27 @@ namespace Inventory_Management_System
 		private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 			SetdataGridView2Index();
-			dataGridView2.DefaultCellStyle.SelectionBackColor= System.Drawing.Color.Gray;
+			dataGridView2.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Gray;
+		}
+
+		private void textBox2_TextChanged(object sender, EventArgs e)
+		{
+			button4.Enabled = allowSave();
+		}
+
+		private void textBox4_TextChanged(object sender, EventArgs e)
+		{
+			button4.Enabled = allowSave();
+		}
+
+		private void textBox3_TextChanged(object sender, EventArgs e)
+		{
+			button4.Enabled = allowSave();
+		}
+
+		private void textBox5_TextChanged(object sender, EventArgs e)
+		{
+			button4.Enabled = allowSave();
 		}
 	}
 }
