@@ -224,8 +224,8 @@ namespace Inventory_Management_System
 			{
 				Inventory.CurrentProduct = Inventory.Products[Inventory.SelectedProductIndex];
 				this.Hide();
-				Form3 form3 = new Form3();
-				form3.Show();
+				Form5 form5 = new Form5();
+				form5.Show();
 			}
 			else
 			{

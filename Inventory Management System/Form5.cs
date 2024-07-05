@@ -11,7 +11,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Inventory_Management_System
 {
-	public partial class Form3 : Form
+	public partial class Form5 : Form
 	{
 		// Variables
 		private Product product;
@@ -49,9 +49,8 @@ namespace Inventory_Management_System
 
 
 
-		public Form3()
-		{	
-			//This should be form 5
+		public Form5()
+		{
 			InitializeComponent();
 
 			product = Inventory.CurrentProduct;
@@ -206,6 +205,10 @@ namespace Inventory_Management_System
 			{
 				CreateNewProduct();
 			}
+			else
+			{
+				modifyProduct();
+			}
 			this.Close();
 			this.Hide();
 			Form1 form1 = new Form1();
@@ -219,6 +222,15 @@ namespace Inventory_Management_System
 
 			Inventory.AddProduct(newProduct);
 			newProduct.AssociatedParts = product.AssociatedParts;
+		}
+		// Modify Product
+		private void modifyProduct()
+		{
+			product.Name = textBox2.Text;
+			product.Price = Convert.ToDecimal(textBox4.Text);
+			product.InStock = Convert.ToInt32(textBox3.Text);
+			product.Min = Convert.ToInt32(textBox6.Text);
+			product.Max = Convert.ToInt32(textBox5.Text);
 		}
 
 
@@ -277,6 +289,15 @@ namespace Inventory_Management_System
 		private void textBox5_TextChanged(object sender, EventArgs e)
 		{
 			button4.Enabled = allowSave();
+		}
+
+		private void button5_Click(object sender, EventArgs e)
+		{
+			product.AssociatedParts = tempList;
+			this.Close();
+			this.Hide();
+			Form1 form1 = new Form1();
+			form1.Show();
 		}
 	}
 }
